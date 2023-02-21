@@ -1,0 +1,61 @@
+<div class="featured_product">
+{% assign product_handle = section.settings.text-box | handle | remove:'products-'%}
+
+<div class="featured_product_wrapper">
+
+<div class="featp_inner">
+
+<div class="feat_product_left">
+
+<img src ="{{all_products[product_handle].featured_image.src | img_url:'master'}}" />
+
+</div>
+
+<div class="featured_pr_riht">
+<h2>{{all_products[product_handle].title}}</h2>
+<h4>{{all_products[product_handle].selected_or_first_available_variant.price | money}}</h4>
+
+  <div class="Product_desc">
+{{all_products[product_handle].description}}
+</div>
+
+<p><em>* FREE SHIPPING</em></p>
+  <div class="btn_wrapped">
+<a href="/cart/{{all_products[product_handle].selected_or_first_available_variant.id}}:1">Buy Now</a>
+<a href="{{all_products[product_handle].url}}">More Info</a>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+</div>
+{% schema %}
+{
+  "name": "homepage featured product",
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "url",
+      "label": "Choose Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage featured product",
+      "category": "homepage featured product"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

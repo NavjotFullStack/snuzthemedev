@@ -1,0 +1,60 @@
+
+
+<div class="column_box pinkbg">
+
+
+
+<div class="clumn_inner clumm_image"><img src="{{section.settings.img | img_url:'master'}}" /></div>
+<div class="clumn_inner clumm_content">
+<h3>{{section.settings.text-box}}</h3>
+{{section.settings.content}}
+<a href="{{section.settings.link}}">{{section.settings.linktext}}</a>
+</div>
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Homepage right column",
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading"
+    },
+	 {
+      "id": "content",
+      "type": "textarea",
+      "label": "content"
+    },
+	  {
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text"
+        },
+		{
+          "id": "img",
+          "type": "image_picker",
+          "label": "image"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Homepage right column",
+      "category": "Homepage right column"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,110 @@
+
+<div class="list_collections">
+
+<div class="list_col_wrapper">
+{% assign colhandle1 = section.settings.clink1 | handle | remove_first:'collections-'%}
+
+<ul>
+{% for product in collections[colhandle1].products %}
+<li>
+<div class="list_wrap">
+<div class="list_image"><img src="{{product.featured_image.src | img_url:'master'}}" /></div>
+<div class="list_content">
+<h4>{{product.title}}</h4>
+<p>Starting at {{product.selected_or_first_available_variant.price | money}}</p>
+
+</div>
+
+</div>
+
+
+
+</li>
+{% endfor %}
+
+
+</ul>
+<a href="{{section.settings.link1}}">{{section.settings.linktext1}}</a>
+</div>
+
+</div>
+
+
+<div class="list_collections listcovers">
+
+<div class="list_col_wrapper">
+{% assign colhandle2 = section.settings.clink2 | handle  | remove_first:'collections-'%}
+
+<ul>
+{% for product in collections[colhandle2].products %}
+<li>
+<div class="list_wrap">
+<div class="list_image"><img src="{{product.featured_image.src | img_url:'master'}}" /></div>
+<div class="list_content">
+<h4>{{product.title}}</h4>
+<p>Starting at {{product.selected_or_first_available_variant.price | money}}</p>
+
+</div>
+
+</div>
+
+
+
+</li>
+{% endfor %}
+
+
+</ul>
+<a href="{{section.settings.link2}}">{{section.settings.linktext2}}</a>
+</div>
+
+</div>
+{% schema %}
+{
+  "name": "homepage list colections",
+  "settings": [
+   {
+          "id": "link1",
+          "type": "url",
+       		"label": "Button link 1"
+        },
+        {
+          "id": "linktext1",
+          "type": "text",
+          "label": "Button text 1"
+        },
+ {
+          "id": "link2",
+          "type": "url",
+       		"label": "Button link 2"
+        },
+        {
+          "id": "linktext2",
+          "type": "text",
+          "label": "Button text2"
+        },
+  {
+          "id": "clink1",
+          "type": "url",
+       		"label": "Choose collection"
+        },
+          {
+          "id": "clink2",
+          "type": "url",
+       		"label": "Choose collection"
+        }
+  ],
+  "presets": [
+    {
+      "name": "homepage list colections",
+      "category": "homepage list colections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

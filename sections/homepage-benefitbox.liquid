@@ -1,0 +1,99 @@
+<div class="six_boxes">
+
+<div class="six_box_wrapper">
+
+<div class="six_hg"><h2>What are the benefits?</h2></div>
+
+<div class="six_outer">
+
+
+{% for block in section.blocks %}
+<div class="six_inner">
+
+<div class="six_image"><img src="{{block.settings.img | img_url:'master'}}" /></div>
+<div class="six_content">
+<h4>{{block.settings.hg}}</h4>
+<p>{{block.settings.content}}</p>
+
+</div>
+
+
+</div>
+{% endfor %}
+
+
+
+
+</div>
+
+<div class="six_action_btn"><a href="{{section.settings.link}}">{{section.settings.linktext}}</a></div>
+
+</div>
+
+</div>
+{% schema %}
+{
+  "name": "homepage benift box",
+	"max_blocks": 6,
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading"
+    },
+	 {
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Box",
+      "settings": [
+        {
+          "id": "img",
+          "type": "image_picker",
+       		"label": "Image"
+        },
+        {
+          "id": "hg",
+          "type": "text",
+          "label": "heading"
+        },
+		{
+          "id": "content",
+          "type": "textarea",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage benift box",
+      "category": "homepage benift box",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

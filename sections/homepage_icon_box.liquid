@@ -1,0 +1,106 @@
+<div class="study_box">
+<div class="study_box_wrapper">
+
+<div class="study_box_head"><h2>{{section.settings.text-box}}</h2></div>
+
+<div class="ixon_box">
+
+<div class="ixon_box_inner">
+
+<div class="left_icon"><img src="{{'icon1.png' | file_url}}" /></div>
+
+<div class="right_cion">
+<img src="{{'sticon1.png' | file_url}}" />
+<span class="count_text">{{section.settings.mh}}</span>
+<span class="icon_content">{{section.settings.mc}}</span>
+</div>
+
+</div>
+
+
+<div class="ixon_box_inner">
+
+<div class="left_icon"><img src="{{'icon2.png' | file_url }}" /></div>
+
+<div class="right_cion">
+<img src="{{'sticon2.png' | file_url}}" />
+<span class="count_text">{{section.settings.wh}}</span>
+<span class="icon_content">{{section.settings.wc}}</span>
+</div>
+
+</div>
+
+<div class="ixon_box_inner">
+
+<div class="left_icon"><img src="{{'icon3.png' | file_url }}" /></div>
+
+<div class="right_cion">
+<img src="{{'sticon3.png' | file_url }}" />
+<span class="count_text">{{section.settings.ch}}</span>
+<span class="icon_content">{{section.settings.cc}}</span>
+</div>
+
+</div>
+
+</div>
+
+<p>*Our study shows that many people are suffering from anxiety, stress and insomnia</p>
+
+</div>
+
+
+</div>
+{% schema %}
+{
+  "name": "homepage icon box",
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading"
+    },
+	{
+      "id": "mh",
+      "type": "text",
+      "label": "men heading"
+    },
+	{
+      "id": "mc",
+      "type": "textarea",
+      "label": "men content"
+    },
+	{
+      "id": "wh",
+      "type": "text",
+      "label": "women heading"
+    },
+	{
+      "id": "wc",
+      "type": "textarea",
+      "label": "women content"
+    },
+	{
+      "id": "ch",
+      "type": "text",
+      "label": "child heading"
+    },
+	{
+      "id": "cc",
+      "type": "textarea",
+      "label": "child content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage icon box",
+      "category": "homepage icon box"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

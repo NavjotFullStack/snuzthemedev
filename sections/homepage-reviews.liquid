@@ -1,0 +1,66 @@
+<div class="review_section">
+
+<div class="review_wrapper">
+
+<h2>Here’s what our customers are saying</h2>
+<img src="{{'review_pic.png' | file_url }}" />
+<a href="">Show more reviews</a>
+
+</div>
+
+
+
+</div>
+{% schema %}
+{
+  "name": "homepage reviews",
+	"max_blocks": 3,
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Button",
+      "settings": [
+        {
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text",
+          "default": "Click here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage reviews",
+      "category": "homepage reviews",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

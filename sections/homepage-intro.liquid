@@ -1,0 +1,45 @@
+<div class="box_intro">
+<div class="box_wrapper">
+
+<div class="intro_icon">{% include 'blanket' %}</div>
+<div class="intro_content">
+<h2>{{section.settings.text-box}}</h2>
+  {{section.settings.text-box1}}
+
+</div>
+
+
+</div>
+
+
+
+</div>
+{% schema %}
+{
+  "name": "Homepage intro section",
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading"
+    },
+	 {
+      "id": "text-box1",
+      "type": "textarea",
+      "label": "content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage intro section",
+      "category": "Homepage intro section"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

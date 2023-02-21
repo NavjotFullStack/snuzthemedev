@@ -1,0 +1,61 @@
+{% for block in section.blocks %}
+
+<div class="faq_gp">
+<div class="faq_q"><h3>{{block.settings.question}}</h3></div>
+<div class="faq_c">
+{% if block.settings.img %} <p><img src="{{block.settings.img | img_url:'master'}}" /></p>{% endif %}
+{{block.settings.answer}}
+</div>
+</div>
+
+{% endfor %}
+
+{% schema %}
+{
+  "name": "FAQ Blocks",
+	"max_blocks": 30,
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add FAQ",
+      "settings": [
+        {
+          "id": "question",
+          "type": "textarea",
+       		"label": "Question"
+        },
+        {
+          "id": "answer",
+          "type": "textarea",
+          "label": "Answer"
+        },
+{
+          "id": "img",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Blocks",
+      "category": "FAQ Blocks",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

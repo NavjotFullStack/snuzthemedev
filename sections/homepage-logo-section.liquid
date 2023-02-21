@@ -1,0 +1,48 @@
+<div class="logo_section">
+
+  <ul>
+  {% for block in section.blocks %}
+    <li><img src="{{block.settings.img | img_url:'master'}}" /></li>
+	{% endfor %}
+</ul>
+
+</div>
+{% schema %}
+{
+  "name": "homepage logo Blocks",
+	"max_blocks": 3,
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Logo",
+      "settings": [
+        {
+          "id": "img",
+          "type": "image_picker",
+       		"label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage logo Blocks",
+      "category": "homepage logo Blocks",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

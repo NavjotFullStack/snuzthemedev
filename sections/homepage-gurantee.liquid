@@ -1,0 +1,64 @@
+<div class="full_width_grw">
+<div class="column_box pinkbg">
+
+
+
+<div class="clumn_inner clumm_image"><img src="{{section.settings.img | img_url:'master'}}" /></div>
+<div class="clumn_inner clumm_content">
+<h3>{{section.settings.text-box}}</h3>
+{{section.settings.text-box1}}
+<a href="{{section.settings.link}}">{{section.settings.linktext}}</a>
+<p>{{section.settings.lstcontnet}}</p>
+</div>
+
+</div>
+</div>
+{% schema %}
+{
+  "name": "homepage gurantee section",
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading"
+    },
+	 {
+      "id": "text-box1",
+      "type": "textarea",
+      "label": "content"
+    },
+	{
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text"
+        },
+		{
+          "id": "lstcontnet",
+          "type": "textarea",
+       		"label": "last content"
+        },
+        {
+          "id": "img",
+          "type": "image_picker",
+          "label": "image"
+        }
+  ],
+  "presets": [
+    {
+      "name": "homepage gurantee section",
+      "category": "homepage gurantee section"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

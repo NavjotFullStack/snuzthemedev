@@ -1,0 +1,227 @@
+
+    <script src="{{'jquery.min.js' | asset_url }}"></script>
+<script src="{{'TweenMax.min.js' | asset_url }}"></script>
+
+   <script src="{{'ScrollMagic.js' | asset_url }}"></script>
+<script src="{{'animation.gsap.js' | asset_url }}"></script>
+
+<script src="{{'debug.addIndicators.js' | asset_url }}"></script>
+   
+
+<section class="demo" id="bezier" style="">
+					<div class="spacer s2"></div>
+					<div class="spacer s0" id="triggered"></div>
+					<div data-scrollmagic-pin-spacer="" class="scrollmagic-pin-spacer" style="inset: auto; margin: 0px; display: block; position: relative; box-sizing: content-box; min-height: 215px; height: auto; padding-top: 0px; padding-bottom: 500px;"><div id="target" style="position: relative; margin: auto; inset: 0px auto auto 0px; box-sizing: border-box; width: 100%;">
+						<img id="plane" src="https://scrollmagic.io/assets/img/example_bezier.png" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+						<a href="#" class="viewsource">view source</a>
+					</div></div>
+					<div class="spacer s2"></div>
+					<script>
+						$(function () { // wait for document ready
+							var flightpath = {
+								entry : {
+									curviness: 1.25,
+									autoRotate: true,
+									values: [
+											{x: 100,	y: -20},
+											{x: 300,	y: 10}
+										]
+								},
+								looping : {
+									curviness: 1.25,
+									autoRotate: true,
+									values: [
+											{x: 510,	y: 60},
+											{x: 620,	y: -60},
+											{x: 500,	y: -100},
+											{x: 380,	y: 20},
+											{x: 500,	y: 60},
+											{x: 580,	y: 20},
+											{x: 620,	y: 15}
+										]
+								},
+								leave : {
+									curviness: 1.25,
+									autoRotate: true,
+									values: [
+											{x: 660,	y: 20},
+											{x: 800,	y: 130},
+											{x: $(window).width() + 300,	y: -100},
+										]
+								}
+							};
+							// init controller
+							var controller = new ScrollMagic.Controller();
+
+							// create tween
+							var tween = new TimelineMax()
+								.add(TweenMax.to($("#plane"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
+								.add(TweenMax.to($("#plane"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
+								.add(TweenMax.to($("#plane"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
+
+
+
+							// build scene
+							var scene = new ScrollMagic.Scene({triggerElement: "#shopify-section-16266265709a923432", duration: 500, offset: 100})
+											//.setPin("#target")
+											.setTween(tween)
+											.addIndicators() // add indicators (requires plugin)
+											.addTo(controller);
+						})
+					</script>
+				</section>
+
+
+				<div class="spacer s_viewport"></div>
+
+
+<style type="text/css">
+
+
+#bezier {
+    overflow: hidden;
+    position: relative;
+}
+section.demo {
+    font-size: 0;
+    text-align: center;
+    background-image: url(https://scrollmagic.io/assets/img/example_bg_v.png);
+}
+
+#example-wrapper .scrollContent div {
+    font-size: 13px;
+}
+
+.spacer.s0 {
+    min-height: 1px;
+}
+
+.spacer.s2 {
+    min-height: 200px;
+}
+section.demo * {
+    font-size: 13px;
+}
+.spacer {
+    text-align: center;
+    min-height: 100px;
+    background-image: url(https://scrollmagic.io/assets/img/example_bg_spacer_v.gif);
+}
+
+#bezier #plane {
+    position: absolute;
+    left: -100px;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "homepage svg",
+	"max_blocks": 3,
+  "settings": [
+   {
+          "id": "linkf",
+          "type": "url",
+       		"label": "facebook link"
+        },
+   {
+          "id": "linki",
+          "type": "url",
+       		"label": "Instagram link"
+        },
+   {
+          "id": "linkp",
+          "type": "url",
+       		"label": "Pinterst link"
+        },
+   {
+          "id": "linke",
+          "type": "url",
+       		"label": "excellence link"
+        }
+  ], "blocks": [
+    {
+      "type": "select",
+      "name": "Add block",
+      "settings": [
+        {
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text"
+        },
+   {
+          "id": "img",
+          "type": "image_picker",
+          "label": "Iamge"
+        },
+{
+          "id": "content",
+          "type": "textarea",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage svg",
+      "category": "homepage svg",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

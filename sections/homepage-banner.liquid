@@ -1,0 +1,147 @@
+<div class="banner_section">
+
+{% for block in section.blocks %}
+
+  <div class="banner_inner">
+
+    <div class="banner_image"><img src="{{block.settings.img | img_url:'master'}}" /></div>
+    <div class="banner_content">
+
+      <h2>{{block.settings.content}}</h2>
+      <a href="{{block.settings.link}}">{{block.settings.linktext}}</a>
+
+</div>
+
+
+</div>
+
+
+{% endfor %}
+
+  <ul>
+    <li><a href="{{section.settigs.linkf}}"><img src="{{'facebbok.png' | asset_url }}" /></a></li>
+  <li><a href="{{section.settigs.linki}}"><img src="{{'instagram.png' | asset_url }}" /></a></li>
+  <li><a href="{{section.settigs.linkp}}"><img src="{{'nstagram.png' | asset_url }}" /></a></li>
+   <li><a href="{{section.settigs.linke}}"><img src="{{'badge.png' | asset_url }}" /></a></li>
+</ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "homepage banner blocks",
+	"max_blocks": 3,
+  "settings": [
+   {
+          "id": "linkf",
+          "type": "url",
+       		"label": "facebook link"
+        },
+   {
+          "id": "linki",
+          "type": "url",
+       		"label": "Instagram link"
+        },
+   {
+          "id": "linkp",
+          "type": "url",
+       		"label": "Pinterst link"
+        },
+   {
+          "id": "linke",
+          "type": "url",
+       		"label": "excellence link"
+        }
+  ], "blocks": [
+    {
+      "type": "select",
+      "name": "Add block",
+      "settings": [
+        {
+          "id": "link",
+          "type": "url",
+       		"label": "Button link"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text"
+        },
+   {
+          "id": "img",
+          "type": "image_picker",
+          "label": "Iamge"
+        },
+{
+          "id": "content",
+          "type": "textarea",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "homepage banner blocks",
+      "category": "homepage banner blocks",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

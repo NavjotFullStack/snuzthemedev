@@ -1,0 +1,144 @@
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+<div class="product_box">
+
+  <div class="page-width">
+
+
+{% section 'product-template' %}
+
+
+
+
+
+  </div>
+{% section 'related-products' %}
+<div class="review_section product_page_reviews">
+
+<div class="review_wrapper">
+
+<h2>Here’s what our customers are saying</h2>
+<img src="{{'review_pic.png' | file_url }}" />
+<a href="">Show more reviews</a>
+
+</div>
+
+
+
+</div>
+</div>
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.featured_image -%}
+    {%- assign image_size = product.featured_image.width | append: 'x' -%}
+    "image": [
+      {{ product.featured_image.src | img_url: image_size | prepend: "https:" | json }}
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {%- if current_variant.sku != blank -%}
+    "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+  "brand": {
+    "@type": "Thing",
+    "name": {{ product.vendor | json }}
+  },
+  "offers": [
+    {%- for variant in product.variants -%}
+      {
+        "@type" : "Offer",
+        {%- if variant.sku != blank -%}
+          "sku": {{ variant.sku | json }},
+        {%- endif -%}
+        "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency" : {{ cart.currency.iso_code | json }},
+        "url" : {{ shop.url | append: variant.url | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+
+<div class="home_coll_grid_image">
+
+<img class="home_coll_active"  src="https://cdn.shopify.com/s/files/1/0036/5907/1537/files/model1.jpg?v=1643887848" data-title="Model" />
+
+  <img src="<script>document.write('def_images[0]')</script>" data-title="Product" />
+            </div> 
+
+{% assign count = "" %}
+
+-----------------------
+{% capture get_model_var_pic1 %}
+{% for v in product.variants %}  
+
+{% if forloop.index ==  1 %}
+
+
+{% for img in product.images %}
+
+{% if v.title == img.alt %}
+{{img.src | img_url:'master' | append:'|'}}
+{% endif %}
+
+{% endfor %}
+
+
+{% endif %}
+
+{% endfor %}
+{% endcapture %}
+{% assign getting_first_array_val = get_model_var_pic1 | strip  | split:'|' %}
+<h1>bc {{getting_first_array_val[0] | strip}}</h1>
+<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+{% assign l_index =  getting_first_array_val.size | minus:1 %}
+<h1>bc {{getting_first_array_val[l_index] | strip}}</h1>
+<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+
+-----------------------------
+
+{% for v in product.variants %}                   
+   <li class="{% if v.title == product.selected_or_first_available_variant.title %}var_active{% endif %}">
+<a href="{{v.url}}" data-model="" data-product="{{v.image.src | img_url:'1500x'}}">
+<img src="https://i.warbycdn.com/s/f/c8cc3110f5b05b05a44b039dc7f726f769b03fb0" />
+</a>
+</li>
+{% endfor %}
+
+<script type="text/javascript">
+var def_images = [];
+
+{% assign get_selected_val = product.selected_or_first_available_variant.title  %}
+
+  {% for image in product.images %}
+  {% if image.alt == get_selected_val %}
+  def_images.push({url: "{{ image |img_url: '1500x' }}", alt: "{{ image.alt }}"});
+  {% endif %}
+  {% endfor %}
+console.log('def_images',def_images);
+
+          </script>
+
+
+<!--Start Stamped.io Auto Installation--><div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div><!--End Stamped.io Auto Installation-->
